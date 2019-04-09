@@ -1,0 +1,103 @@
+Implementation files and details:
+-------------------------------------------------------
+
+AlexNet.py
+cnn_utils.py
+datasets
+	- test_signs.h5
+	- train_signs.h5
+
+
+Model in file:  AlexNetModel.png
+
+
+The network’s input is 12,288-dimensional, and the number of neurons in the network’s remaining layers is given by 4704-614656-885120-1327488-884992-37752832-16781312-24582  = 58,275,686 number of parameters
+Our neural network architecture has 60 million parameters
+
+
+
+
+Steps :
+-------------------------------------------------------
+
+
+1. Start an AWS instance
+
+2. Run the scp command to copy the required files and datasets to AWS EC2 instance. The below command requires .pem private key file. 
+
+scp -ri "/Users/user1/Desktop/AlexNet/rhel_3rd.pem"    "/Users/user1/Desktop/AlexNet/AlexNet.py"    "/Users/user1/Desktop/AlexNet/cnn_utils.py"  "/Users/user1/Desktop/AlexNet/datasets"   ec2-user@123.amazonaws.com:/home/ec2-user/.
+
+
+
+3. Installing Python. Check if aws already has python. If not then install using the below command.
+
+sudo yum install python3   
+
+
+
+4. Install Python package manager.
+
+sudo yum install python-pip
+
+
+
+5. Install other libraries
+
+sudo pip install --no-cache-dir scipy      #downloads both scipy and numpy
+sudo pip install --no-cache-dir tensorflow
+sudo pip install --no-cache-dir  h5py
+
+Uses of --no-cache-dir in pip command:
+Cached: store away in hiding or for future use
+It is used to store the installation files(.whl, etc) of the modules that you install through pip.
+If you don't have space on your hard drive you might want to disable it
+
+
+
+6. Run python script
+
+Python AlexNet.py
+
+
+
+Output:
+-------------------------------------------------------
+
+Previous application model output:
+
+Cost after epoch 0: 1.917929
+Cost after epoch 5: 1.506757
+Cost after epoch 10: 0.955359
+Cost after epoch 15: 0.845802
+Cost after epoch 20: 0.701174
+Cost after epoch 25: 0.571977
+Cost after epoch 30: 0.518435
+Cost after epoch 35: 0.495806
+Cost after epoch 40: 0.429827
+Cost after epoch 45: 0.407291
+Cost after epoch 50: 0.366394
+Cost after epoch 55: 0.376922
+Cost after epoch 60: 0.299491
+Cost after epoch 65: 0.338870
+Cost after epoch 70: 0.316400
+Cost after epoch 75: 0.310413
+Cost after epoch 80: 0.249549
+Cost after epoch 85: 0.243457
+11
+Cost after epoch 90: 0.200031
+Cost after epoch 95: 0.175452
+Tensor("Mean_1:0", shape=(), dtype=float32)
+Train Accuracy: 0.940741
+Test Accuracy: 0.783333
+
+
+
+
+
+AlexNet output:
+
+
+
+
+
+
