@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# # AlexNet 
+# # VGG-16 
 # 
 
 # ## TensorFlow model
